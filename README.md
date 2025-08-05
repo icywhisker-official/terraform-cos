@@ -4,7 +4,7 @@ Actual Budget hosted on Google Cloud's always free tier
 ## icywhisker-indev
 Icy's goal is to create a template for Google Cloud Projects that is primarily focused on modularity. There may be more template modules added later on. For now, Actual Budget is the only service included.
 
-This readme will be modified to reflect the changes made to the project. All of the variables that need changed or set are found in ./vars/vars-output. You are required to set 3 5 variables or the deployement will fail catastrophically.
+This readme will be modified to reflect the changes made to the project. All of the variables that need changed or set are found in ./vars/vars-output. You are required to set 7 variables or the deployement will fail catastrophically.
 1. Set the terraform provider block found in ./project.tf
 2. Set the google account username in vars-output.tf
 3. Set the project name in vars-output.tf
