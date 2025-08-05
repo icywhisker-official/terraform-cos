@@ -34,11 +34,11 @@ locals {
 #cloud-config
 ${yamlencode({
   write_files = concat(
-    module.custom.write_files,
     module.actual.write_files,
     module.duckdns.write_files,
-    module.caddy.write_files
-  ),  # ← comma added here
+    module.caddy.write_files,
+    module.custom.write_files
+  ),
   bootcmd = [
     "fsck.ext4 -tvy ${local.merged.gcp.disk.data.gcp_name}",
     "mkdir -p /mnt/disks/data",
