@@ -1,0 +1,28 @@
+name: Terraform Auto CI
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  GOOGLE_CREDENTIALS: ${{ secrets.TERRAFORM_GCA }}
+  TF_VAR_duckdns:     ${{ secrets.DUCKDNS }}
+  TF_VAR_google:      ${{ secrets.GOOGLE }}
+
+jobs:
+  plan:
+    name: fmt
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          cli_config_credentials_token: ${{ secrets.TERRAFORM_TOKEN }}
+      - run: terraform fmt -recursive
+      - run: terraform init -input=false
+      - run: terraform plan -input=false
