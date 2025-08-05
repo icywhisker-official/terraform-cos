@@ -1,14 +1,5 @@
 // vars output map
 
-variable "google" {
-  type = object({
-    google_username = optional(string)
-    google_project  = optional(string)
-    google_billing  = optional(string)
-  })
-  default = {}
-}
-
 output "gcp_vars_map" {
   value = {
     account = {
@@ -69,17 +60,13 @@ output "gcp_vars_map" {
   description = "Map of GCP configuration variables"
 }
 
-variable "duckdns_token" {
-  description = "Sensitive DuckDNS API token"
-  type        = string
-  sensitive   = true
-  default     = null
-}
-
-variable "duckdns_subdomain" {
-  description = "Your DuckDNS subdomain (e.g. example.duckdns.org)"
-  type        = string
-  default     = null
+variable "google" {
+  type = object({
+    google_username = optional(string)
+    google_project  = optional(string)
+    google_billing  = optional(string)
+  })
+  default = {}
 }
 
 variable "duckdns" {

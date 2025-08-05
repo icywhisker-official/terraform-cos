@@ -2,13 +2,15 @@
 
 terraform {
   backend "remote" {
-    organization = null
-    workspaces { name = null }
+    organization = "icywhisker"
+    workspaces { name = "icywhiskerdev" }
   }
 }
 
 module "vars" {
   source = "./vars"
+  google  = var.google
+  duckdns = var.duckdns
 }
 
 module "firewall" {
