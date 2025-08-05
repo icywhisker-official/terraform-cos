@@ -2,8 +2,8 @@
 
 terraform {
   backend "remote" {
-    organization = "icywhisker"
-    workspaces { name = "icywhiskerdev" }
+    organization = null
+    workspaces { name = null }
   }
 }
 
