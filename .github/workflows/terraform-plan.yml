@@ -1,9 +1,10 @@
 name: Terraform Auto CI
 
 on:
-    branches: [ dev ]
+  push:
+    branches: [ main ]
   pull_request:
-    branches: [ dev ]
+    branches: [ main ]
 
 permissions:
   contents: read
