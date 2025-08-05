@@ -1,3 +1,5 @@
+[![Terraform fmt and plan checks](https://github.com/icywhisker-official/terraform-cos/actions/workflows/terraform-plan.yml/badge.svg)](https://github.com/icywhisker-official/terraform-cos/actions/workflows/terraform-plan.yml)
+
 # actual-gcp
 Actual Budget hosted on Google Cloud's always free tier
 
