@@ -9,6 +9,8 @@ terraform {
 
 module "vars" {
   source = "./vars"
+  google  = var.google
+  duckdns = var.duckdns
 }
 
 module "firewall" {

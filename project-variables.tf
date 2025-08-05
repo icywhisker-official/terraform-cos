@@ -48,6 +48,24 @@ ${yamlencode({
   EOT
 }
 
+variable "google" {
+  type = object({
+    google_username = optional(string)
+    google_project  = optional(string)
+    google_billing  = optional(string)
+  })
+  default = {}
+}
+
+variable "duckdns" {
+  type = object({
+    duckdns_subdomain = optional(string)
+    duckdns_token     = optional(string)
+  })
+  default = {}
+  sensitive = true
+}
+
 output "project_id" {
   value = local.merged.gcp.project.name
 }
