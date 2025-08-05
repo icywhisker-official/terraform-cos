@@ -1,0 +1,12 @@
+# firewall/allow-ssh.yaml
+allow-ssh:
+  name: allow-ssh
+  priority: 1000
+  allow:
+    - protocol: tcp
+      ports:
+        - "22"
+  target_tags:
+    - allow-ssh
+  source_ranges:
+    - "0.0.0.0/0"

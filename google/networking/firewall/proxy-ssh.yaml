@@ -1,0 +1,9 @@
+# firewall/proxy-ssh.yaml
+proxy-ssh:
+  name: proxy-ssh-indev
+  priority: 1000
+  allow:
+    - protocol: tcp
+      ports: ["22"]
+  target_tags: ["proxy-ssh"]
+  source_ranges: ["35.235.240.0/20"]

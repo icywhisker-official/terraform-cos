@@ -1,0 +1,12 @@
+# firewall/allow-http.yaml
+allow-http:
+  name: allow-http-indev
+  priority: 1000
+  allow:
+    - protocol: tcp
+      ports:
+        - "80"
+  target_tags:
+    - http-server
+  source_ranges:
+    - "0.0.0.0/0"

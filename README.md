@@ -1,6 +1,19 @@
 # actual-gcp
 Actual Budget hosted on Google Cloud's always free tier
 
+## icywhisker-indev
+Icy's goal is to create a template for Google Cloud Projects that is primarily focused on modularity. There may be more template modules added later on. For now, Actual Budget is the only service included.
+
+This readme will be modified to reflect the changes made to the project. All of the variables that need changed or set are found in ./vars/vars-output. You are required to set 3 5 variables or the deployement will fail catastrophically.
+1. Set the terraform provider block found in ./project.tf
+2. Set the google account username in vars-output.tf
+3. Set the project name in vars-output.tf
+4. Set the billing name in vars-output.tf
+5. Change the default duckdns subdomain in vars-output.tf
+6. Change the default duckdns api token in vars-output.tf - THIS IS A SENSITIVE VALUE. DO NOT PUBLISH THIS TOKEN
+
+Note: One primary addition is docker compose. This binary is installed on the VM host OS so docker compose can be used to deploy the dockers. The binary is installed by the user, not root. I do not believe root can use the docker compose binary which is why the services are run by the user as well instead of root.
+
 ## Background
 The goal of this repository is to deploy [Actual Budget][1] running on [Google Cloud's][2] [Free Tier][3], using the Compute Engine service. This setup utilizes [Terraform][4] to deploy and automatically configure the cloud infrastructure. Some manual steps may still need to be taken, but I've tried to remove as many as possible and document the rest.
 
