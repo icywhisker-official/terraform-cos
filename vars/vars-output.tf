@@ -1,18 +1,28 @@
 // vars output map
+
+variable "google" {
+  type = object({
+    google_username = optional(string)
+    google_project  = optional(string)
+    google_billing  = optional(string)
+  })
+  default = {}
+}
+
 output "gcp_vars_map" {
   value = {
     account = {
-      username = null
+      username = var.google.google_username
       id       = "container-host-sa-indev"
     }
     project = {
-      name    = null
+      name    = var.google.google_project
       region  = "us-east1"
       zone    = "us-east1-c"
       network = "vpc-network-indev"
     }
     billing = {
-      project   = null
+      project   = var.google.google_billing
       alert     = "5"
       currency  = "USD"
       display   = "Monthly Budget Alert"
@@ -72,9 +82,18 @@ variable "duckdns_subdomain" {
   default     = null
 }
 
+variable "duckdns" {
+  type = object({
+    duckdns_subdomain = optional(string)
+    duckdns_token     = optional(string)
+  })
+  default = {}
+  sensitive = true
+}
+
 output "duckdns_vars_map" {
   value = {
-    duckdns_token  = var.duckdns_token
-    duckdns_domain = var.duckdns_subdomain
+    duckdns_token  = var.duckdns.duckdns_token
+    duckdns_domain = var.duckdns.duckdns_subdomain
   }
 }
